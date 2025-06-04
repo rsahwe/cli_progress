@@ -1,0 +1,23 @@
+[package]
+name = "cli-progress"
+version = "0.1.0"
+edition = "2024"
+repository = "https://github.com/rsahwe/cli_progress"
+license = "MIT"
+rust-version = "1.85.1"
+description = "Dynamic progress and process display library"
+authors = [
+    "rsahwe <rsahwe@gmx.net>",
+]
+categories = ["command-line-interface"]
+keywords = [
+  "cli",
+  "progress",
+  "display",
+]
+
+[dependencies]
+enable-ansi-support = "0.2.1"
+
+[dev-dependencies]
+rand = "0.9.1"

@@ -15,6 +15,9 @@ use rand::{Rng, rng};
 fn main() {
     // Create CLIDisplayManager at the beginning
     let mut clidm = CLIDisplayManager::new(
+        #[cfg(feature = "unicode")]
+        CLIDisplayNodeType::BrailleSpinningMessage(Cow::Borrowed("Progress bar example")),
+        #[cfg(not(feature = "unicode"))]
         CLIDisplayNodeType::SpinningMessage(Cow::Borrowed("Progress bar example")),
         10,
     );

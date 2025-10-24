@@ -324,6 +324,9 @@ pub enum CLIDisplayNodeType {
     Message(Cow<'static, str>),
     /// Text with an animated spinner at the end
     SpinningMessage(Cow<'static, str>),
+    #[cfg(feature = "unicode")]
+    /// Text with an animated braille spinner at the end
+    BrailleSpinningMessage(Cow<'static, str>),
     /// A controllable progress bar
     ProgressBar(Arc<AtomicU8>),
 }
@@ -334,6 +337,10 @@ impl CLIDisplayNodeType {
             CLIDisplayNodeType::Message(cow) => println!("{}", cow),
             CLIDisplayNodeType::SpinningMessage(cow) => {
                 println!("{} {}", cow, "/-\\|".chars().nth(tick_counter % 4).unwrap())
+            }
+            #[cfg(feature = "unicode")]
+            CLIDisplayNodeType::BrailleSpinningMessage(cow) => {
+                println!("{} {}", cow, "\u{281f}\u{283b}\u{283d}\u{283e}\u{2837}\u{282f}".chars().nth(tick_counter % 6).unwrap())
             }
             CLIDisplayNodeType::ProgressBar(progress) => {
                 let mut lock = stdout().lock();

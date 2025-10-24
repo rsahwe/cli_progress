@@ -1,6 +1,6 @@
 [package]
 name = "cli-progress"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 repository = "https://github.com/rsahwe/cli_progress"
 license = "MIT"
@@ -15,6 +15,10 @@ keywords = [
   "progress",
   "display",
 ]
+
+[features]
+unicode = []
+default = ["unicode"]
 
 [dependencies]
 enable-ansi-support = "0.2.1"

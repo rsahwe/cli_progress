@@ -1,4 +1,4 @@
-## cli-progress
+# cli-progress
 
 > **Dynamic progress and process display library for Rust**
 
